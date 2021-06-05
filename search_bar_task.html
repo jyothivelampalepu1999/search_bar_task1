@@ -1,1 +1,73 @@
-
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset = "UTS-8">
+		<title> search_bar </title>
+		<style>
+		.container {
+		  margin: 0 auto;
+		  width: 400px;
+		}
+		#search {
+		  width: 300px;
+		  height: 50px;
+		  font-size: 20px;
+		}
+		#btn {
+		  position: absolute;
+		  top: 10px;
+		  right: 450px;
+		  height: 50px;
+		  width: 100px;
+		  font-size: 20px;
+		}
+		 li {
+		  border:1px solid black;
+		  margin-left: 0px;
+		  padding: 8px 12px;
+		}
+		li:hover {
+		  background: #ececec
+		}
+		.clear {
+		 margin-left: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<input type="text" placeholder="type the content" id="search" onkeyup="getSearchRes()"/>
+			<input type="button" value="search" id="btn"/>
+			<div id="results">
+				
+			</div>
+		</div>
+	</body>
+		<script>
+		var text = ["suresh","josthana","josthana","sujata","jony","arjun"];
+	
+		function getSearchRes(){
+		var txt = document.getElementById('search');
+		var val = txt.value;
+		var ary =[];
+		var j = 0;
+		for (var i=0 ; i<text.length; i++){
+		  if (val && text[i].startsWith(val)) {
+		   ary[j]=text[i];
+		   j++;
+		   }
+		}
+		//console.log(ary.length);
+		for(var k=0; k<ary.length; k++){
+		//console.log(ary[k]);
+		var x += "<p id='clear"+k +"'>" + ary[k] +"<input type='button' value='X'  onclick='myFunction("+k+")'> </p>"
+		}
+		document.getElementById("results").innerHTML = x;
+	}
+		function myFunction(k){
+			document.getElementById('clear'+k).innerHTML = "";
+		}
+		
+        </script>
+	
+</html>
